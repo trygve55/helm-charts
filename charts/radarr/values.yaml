@@ -5,15 +5,14 @@
 image:
   repository: ghcr.io/hotio/radarr
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "release"
+  tag: "release-5.21.1.9799"
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
 authenticationMethod: External
-baseUrl: /radarr
+baseUrl: /
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -42,11 +41,11 @@ service:
   port: 7878
 
 ingress:
-  enabled: true
-  className: public
+  enabled: false
+  #className: ngnix
   annotations: {} # If baseUrl is changed the appropriate annotations will be added automatically.
   hosts:
-    - host: media.local
+    - host: radarr.local
       # Paths are managed using the value "baseUrl".
   tls: []
   #  - secretName: chart-example-tls

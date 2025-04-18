@@ -5,15 +5,14 @@
 image:
   repository: ghcr.io/hotio/sonarr
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "release"
+  tag: "release-4.0.14.2939"
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
 authenticationMethod: External
-baseUrl: /sonarr
+baseUrl: /
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -42,11 +41,11 @@ service:
   port: 8989
 
 ingress:
-  enabled: true
-  className: public
+  enabled: false
+  # className: ngnix
   annotations: {} # If baseUrl is changed the appropriate annotations will be added automatically.
   hosts:
-    - host: media.local
+    - host: sonarr.local
       # Paths are managed using the value "baseUrl".
   tls: []
   #  - secretName: chart-example-tls

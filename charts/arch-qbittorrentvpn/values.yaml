@@ -5,12 +5,13 @@
 image:
   repository: binhex/arch-qbittorrentvpn
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
   tag: "5.0.3-1-01"
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
+baseUrl: /
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -39,14 +40,11 @@ service:
   port: 8080
 
 ingress:
-  enabled: true
-  className: public
+  enabled: false
+  # className: ngnix
   annotations: {}
   hosts:
-    - host: media.local
-      paths:
-        - path: /qbittorrent/(.*)
-          pathType: ImplementationSpecific
+    - host: qbittorrent.local
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:

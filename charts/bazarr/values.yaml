@@ -5,14 +5,13 @@
 image:
   repository: ghcr.io/hotio/bazarr
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "release"
+  tag: "release-1.5.1"
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-baseUrl: /bazarr
+baseUrl: /
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -41,11 +40,11 @@ service:
   port: 6767
 
 ingress:
-  enabled: true
-  className: public
+  enabled: false
+  # className: ngnix
   annotations: {} # If baseUrl is changed the appropriate annotations will be added automatically.
   hosts:
-    - host: media.local
+    - host: bazarr.local
       # Paths are managed using the value "baseUrl".
   tls: []
   #  - secretName: chart-example-tls
