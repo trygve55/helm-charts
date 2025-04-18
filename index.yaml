@@ -1,0 +1,16 @@
+apiVersion: v1
+entries:
+  sonarr:
+  - apiVersion: v2
+    appVersion: v0.16.1
+    created: "2025-04-17T07:09:16.3007339Z"
+    description: Test description
+    digest: d85eb2512c07b2eaf5f08d403f44d687c0a6b1c9cc78cda372f98e1900dc76b3
+    maintainers:
+    - email: test@example.com
+      name: trygve55
+      url: https://github.com/trygve55
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/0.1.0-helm/sonarr-0.1.0.tgz
