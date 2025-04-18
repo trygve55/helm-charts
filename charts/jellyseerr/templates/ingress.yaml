@@ -28,20 +28,20 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-redirect-from: /
     nginx.ingress.kubernetes.io/proxy-redirect-to: /
     nginx.ingress.kubernetes.io/configuration-snippet: |
-      set $app 'jellyseerr';
+      set $app '{{ trimPrefix "/" $.Values.baseUrl }}';
       
-      proxy_redirect ^ /jellyseerr;
-      proxy_redirect /setup /jellyseerr/setup;
-      proxy_redirect /login /jellyseerr/login;
+      proxy_redirect ^ /$app;
+      proxy_redirect /setup /$app/setup;
+      proxy_redirect /login /$app/login;
       
       # Sub filters to replace hardcoded paths
       proxy_set_header Accept-Encoding "";
       sub_filter_once off;
       sub_filter_types *;
-      sub_filter 'href="/"' 'href="/jellyseerr"';
-      sub_filter 'href="/login"' 'href="/jellyseerr/login"';
-      sub_filter 'href="/setup"' 'href="/jellyseerr/setup"';
-      sub_filter 'href:"/"' 'href:"/jellyseerr"';
+      sub_filter 'href="/"' 'href="/$app"';
+      sub_filter 'href="/login"' 'href="/$app/login"';
+      sub_filter 'href="/setup"' 'href="/$app/setup"';
+      sub_filter 'href:"/"' 'href:"/$app"';
       sub_filter '\/_next' '\/$app\/_next';
       sub_filter '/_next' '/$app/_next';
       sub_filter '/api/v1' '/$app/api/v1';
@@ -78,7 +78,7 @@ spec:
           - path: /
             pathType: Prefix
           {{- else }}
-          - path: /jellyseerr/?(.*)$
+          - path: {{ $.Values.baseUrl }}/?(.*)$
             pathType: ImplementationSpecific
           {{- end }}
             backend:

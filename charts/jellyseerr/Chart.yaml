@@ -5,5 +5,5 @@ description: "Jellyseerr is a free and open source software application for mana
   existing services, such as Sonarr, Radarr."
 
 type: application
-version: 0.1.2
+version: 0.1.3
 appVersion: "2.5.2"

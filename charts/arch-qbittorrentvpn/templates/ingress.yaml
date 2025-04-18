@@ -49,7 +49,7 @@ spec:
           - path: /
             pathType: Prefix
           {{- else }}
-          - path: /qbittorrent/(.*)$
+          - path: {{ $.Values.baseUrl }}/(.*)$
             pathType: ImplementationSpecific
           {{- end }}
             backend:
