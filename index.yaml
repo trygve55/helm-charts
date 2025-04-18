@@ -1,39 +1,37 @@
 apiVersion: v1
 entries:
-  sonarr:
+  arch-qbittorrentvpn:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-04-18T17:05:49.470933697Z"
+    created: "2025-04-18T18:30:19.299430612Z"
     description: A Helm chart for Kubernetes
-    digest: 54c66dea23a2e2c7b5f464e079ebf5f5abc510847a633384a9dd46328329a738
-    name: sonarr
+    digest: b0e758eb818ddf9f7adc3d966d1c71a9b84c46340ae570c6fc3f111292676801
+    name: arch-qbittorrentvpn
     type: application
     urls:
-    - https://github.com/trygve55/helm-charts/releases/download/sonarr-0.1.1/sonarr-0.1.1.tgz
+    - https://github.com/trygve55/helm-charts/releases/download/arch-qbittorrentvpn-0.1.1/arch-qbittorrentvpn-0.1.1.tgz
     version: 0.1.1
-  radarr:
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2025-04-18T17:05:49.470933697Z"
     description: A Helm chart for Kubernetes
     digest: 54c66dea23a2e2c7b5f464e079ebf5f5abc510847a633384a9dd46328329a738
-    name: radarr
+    name: arch-qbittorrentvpn
     type: application
     urls:
-    - https://github.com/trygve55/helm-charts/releases/download/radarr-0.1.0/radarr-0.1.0.tgz
-    version: 0.1.0
-  prowlarr:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2025-04-18T17:05:49.470933697Z"
-    description: A Helm chart for Kubernetes
-    digest: 54c66dea23a2e2c7b5f464e079ebf5f5abc510847a633384a9dd46328329a738
-    name: prowlarr
-    type: application
-    urls:
-    - https://github.com/trygve55/helm-charts/releases/download/prowlarr-0.1.0/prowlarr-0.1.0.tgz
+    - https://github.com/trygve55/helm-charts/releases/download/arch-qbittorrentvpn-0.1.0/arch-qbittorrentvpn-0.1.0.tgz
     version: 0.1.0
   bazarr:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-18T18:30:19.427258482Z"
+    description: A Helm chart for Kubernetes
+    digest: cf7073d632ccff07c3b79838b5bdcd5d3789402bdf72a7f756e259e59ab55d42
+    name: bazarr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/bazarr-0.1.1/bazarr-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2025-04-18T17:05:49.470933697Z"
@@ -45,6 +43,16 @@ entries:
     - https://github.com/trygve55/helm-charts/releases/download/bazarr-0.1.0/bazarr-0.1.0.tgz
     version: 0.1.0
   jellyfin:
+  - apiVersion: v2
+    appVersion: 10.8.13-1
+    created: "2025-04-18T18:30:19.582033092Z"
+    description: A Helm chart for Kubernetes
+    digest: 219b39897370642525d5444505c1cb1d3b5759ad089e7c32b1a6c7979e29fcc5
+    name: jellyfin
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/jellyfin-0.1.1/jellyfin-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2025-04-18T17:05:49.470933697Z"
@@ -58,6 +66,16 @@ entries:
   jellyseerr:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2025-04-18T18:30:19.703796255Z"
+    description: A Helm chart for Kubernetes
+    digest: 584d067380444b873b18553be4c5e1f8cbbe5c18a3dce8e0318f5535ec6d9031
+    name: jellyseerr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/jellyseerr-0.1.1/jellyseerr-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2025-04-18T17:05:49.470933697Z"
     description: A Helm chart for Kubernetes
     digest: 54c66dea23a2e2c7b5f464e079ebf5f5abc510847a633384a9dd46328329a738
@@ -66,15 +84,57 @@ entries:
     urls:
     - https://github.com/trygve55/helm-charts/releases/download/jellyseerr-0.1.0/jellyseerr-0.1.0.tgz
     version: 0.1.0
-  arch-qbittorrentvpn:
+  prowlarr:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-18T18:30:19.831936376Z"
+    description: A Helm chart for Kubernetes
+    digest: 3e2c8c8582ff30d68f1c47d23fd07c8753dcac625fc4513adea5ef874d11be81
+    name: prowlarr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/prowlarr-0.1.1/prowlarr-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2025-04-18T17:05:49.470933697Z"
     description: A Helm chart for Kubernetes
     digest: 54c66dea23a2e2c7b5f464e079ebf5f5abc510847a633384a9dd46328329a738
-    name: arch-qbittorrentvpn
+    name: prowlarr
     type: application
     urls:
-    - https://github.com/trygve55/helm-charts/releases/download/arch-qbittorrentvpn-0.1.0/arch-qbittorrentvpn-0.1.0.tgz
+    - https://github.com/trygve55/helm-charts/releases/download/prowlarr-0.1.0/prowlarr-0.1.0.tgz
     version: 0.1.0
-generated: "2025-04-18T17:05:49.470947913Z"
+  radarr:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-18T18:30:19.936098496Z"
+    description: A Helm chart for Kubernetes
+    digest: 000aea41d3ecdb6dbc740de3887d4b949dd5eedfaeeb1125754c2964bf9c7517
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/radarr-0.1.1/radarr-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-18T17:05:49.470933697Z"
+    description: A Helm chart for Kubernetes
+    digest: 54c66dea23a2e2c7b5f464e079ebf5f5abc510847a633384a9dd46328329a738
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/radarr-0.1.0/radarr-0.1.0.tgz
+    version: 0.1.0
+  sonarr:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-18T17:05:49.470933697Z"
+    description: A Helm chart for Kubernetes
+    digest: 54c66dea23a2e2c7b5f464e079ebf5f5abc510847a633384a9dd46328329a738
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/sonarr-0.1.1/sonarr-0.1.1.tgz
+    version: 0.1.1
+generated: "2025-04-18T18:30:19.936120428Z"
