@@ -3,6 +3,22 @@ entries:
   arch-qbittorrentvpn:
   - apiVersion: v2
     appVersion: 5.0.3-1-01
+    created: "2025-04-21T09:49:58.052526703Z"
+    description: qBittorrent is a bittorrent client programmed in C++ / Qt that uses
+      libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg. It aims
+      to be a good alternative to all other bittorrent clients out there. qBittorrent
+      is fast, stable and provides unicode support as well as many features. This
+      Docker includes OpenVPN and WireGuard to ensure a secure and private connection
+      to the Internet, including use of iptables to prevent IP leakage when the tunnel
+      is down.
+    digest: 5e38f9931467d88faa96e49167ed819222b2e214217b5584fd7835aa1ae6f04b
+    name: arch-qbittorrentvpn
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/arch-qbittorrentvpn-0.1.4/arch-qbittorrentvpn-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 5.0.3-1-01
     created: "2025-04-18T22:47:48.452438775Z"
     description: qBittorrent is a bittorrent client programmed in C++ / Qt that uses
       libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg. It aims
@@ -56,6 +72,18 @@ entries:
   bazarr:
   - apiVersion: v2
     appVersion: 1.5.1
+    created: "2025-04-21T09:49:58.165421541Z"
+    description: Bazarr is a companion application to Sonarr and Radarr. It manages
+      and downloads subtitles based on your requirements. You define your preferences
+      by TV show or movie and Bazarr takes care of everything for you.
+    digest: 5a2a45ced142c033ba971c4148d9f3e51da51b52f02e2618139191e9ed603085
+    name: bazarr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/bazarr-0.1.4/bazarr-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.5.1
     created: "2025-04-18T19:53:15.984792882Z"
     description: Bazarr is a companion application to Sonarr and Radarr. It manages
       and downloads subtitles based on your requirements. You define your preferences
@@ -87,6 +115,23 @@ entries:
     - https://github.com/trygve55/helm-charts/releases/download/bazarr-0.1.0/bazarr-0.1.0.tgz
     version: 0.1.0
   jellyfin:
+  - apiVersion: v2
+    appVersion: 10.10.7
+    created: "2025-04-21T09:49:58.30069582Z"
+    description: 'Jellyfin is a Free Software Media System that puts you in control
+      of managing and streaming your media. It is an alternative to the proprietary
+      Emby and Plex, to provide media from a dedicated server to end-user devices
+      via multiple apps. Jellyfin is descended from Emby''s 3.5.2 release and ported
+      to the .NET Core framework to enable full cross-platform support. There are
+      no strings attached, no premium licenses or features, and no hidden agendas:
+      just a team who want to build something better and work together to achieve
+      it. We welcome anyone who is interested in joining us in our quest!'
+    digest: 1b86f94d2c05ea76971edb00470d1b064c35f0229678e68a377a41e76f1f83d8
+    name: jellyfin
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/jellyfin-0.1.4/jellyfin-0.1.4.tgz
+    version: 0.1.4
   - apiVersion: v2
     appVersion: 10.10.7
     created: "2025-04-18T19:53:16.123338126Z"
@@ -125,6 +170,19 @@ entries:
     - https://github.com/trygve55/helm-charts/releases/download/jellyfin-0.1.0/jellyfin-0.1.0.tgz
     version: 0.1.0
   jellyseerr:
+  - apiVersion: v2
+    appVersion: 2.5.2
+    created: "2025-04-21T09:49:58.391918172Z"
+    description: 'Jellyseerr is a free and open source software application for managing
+      requests for your media library. It integrates with the media server of your
+      choice: Jellyfin, Plex, and Emby. In addition, it integrates with your existing
+      services, such as Sonarr, Radarr.'
+    digest: 0161f90bbf78d26706760adcc6324dccab3e051b7f5460195bc419943c3ef166
+    name: jellyseerr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/jellyseerr-0.1.4/jellyseerr-0.1.4.tgz
+    version: 0.1.4
   - apiVersion: v2
     appVersion: 2.5.2
     created: "2025-04-18T22:47:48.542048728Z"
@@ -174,6 +232,20 @@ entries:
   prowlarr:
   - apiVersion: v2
     appVersion: 1.33.3.5008
+    created: "2025-04-21T09:49:58.528561628Z"
+    description: Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs
+      base stack to integrate with your various PVR apps. Prowlarr supports management
+      of both Torrent Trackers and Usenet Indexers. It integrates seamlessly with
+      Lidarr, Mylar3, Radarr, Readarr, and Sonarr offering complete management of
+      your indexers with no per app Indexer setup required (we do it all).
+    digest: 7d0e964c6cda915cbea3bb4639c8ec5936c32b2678d4ce838d29798cfc376640
+    name: prowlarr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/prowlarr-0.1.4/prowlarr-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.33.3.5008
     created: "2025-04-18T19:53:16.335934864Z"
     description: Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs
       base stack to integrate with your various PVR apps. Prowlarr supports management
@@ -207,6 +279,22 @@ entries:
     - https://github.com/trygve55/helm-charts/releases/download/prowlarr-0.1.0/prowlarr-0.1.0.tgz
     version: 0.1.0
   radarr:
+  - apiVersion: v2
+    appVersion: 5.21.1.9799
+    created: "2025-04-21T09:49:58.646028332Z"
+    description: Radarr is a movie collection manager for Usenet and BitTorrent users.
+      It can monitor multiple RSS feeds for new movies and will interface with clients
+      and indexers to grab, sort, and rename them. It can also be configured to automatically
+      upgrade the quality of existing files in the library when a better quality format
+      becomes available. Note that only one type of a given movie is supported. If
+      you want both a 4k version and 1080p version of a given movie you will need
+      multiple instances.
+    digest: 1a8678b63c6fe37c76738bb0e5180d485c946410d03d5d19ac5cd0c7ae08830e
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/radarr-0.1.4/radarr-0.1.4.tgz
+    version: 0.1.4
   - apiVersion: v2
     appVersion: 5.21.1.9799
     created: "2025-04-18T19:53:16.470831478Z"
@@ -246,6 +334,19 @@ entries:
   sonarr:
   - apiVersion: v2
     appVersion: 4.0.14.2939
+    created: "2025-04-21T09:49:58.755364528Z"
+    description: Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple
+      RSS feeds for new episodes of your favorite shows and will grab, sort and rename
+      them. It can also be configured to automatically upgrade the quality of files
+      already downloaded when a better quality format becomes available.
+    digest: 1ecb104b68c941884557baf13e785030a0469e778797572d9442d50adf7e69cb
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/sonarr-0.1.4/sonarr-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 4.0.14.2939
     created: "2025-04-18T19:53:16.581361748Z"
     description: Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple
       RSS feeds for new episodes of your favorite shows and will grab, sort and rename
@@ -267,4 +368,4 @@ entries:
     urls:
     - https://github.com/trygve55/helm-charts/releases/download/sonarr-0.1.1/sonarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-04-18T22:47:48.542096547Z"
+generated: "2025-04-21T09:49:58.755493609Z"
