@@ -5,5 +5,5 @@ description: Sonarr is a PVR for Usenet and BitTorrent users. It can monitor mul
   quality of files already downloaded when a better quality format becomes available.
 
 type: application
-version: 0.1.2
+version: 0.1.4
 appVersion: "4.0.14.2939"

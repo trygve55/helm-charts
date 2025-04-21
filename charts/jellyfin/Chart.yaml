@@ -7,5 +7,5 @@ description: "Jellyfin is a Free Software Media System that puts you in control 
   team who want to build something better and work together to achieve it. We welcome anyone who is interested in joining us in our quest!"
 
 type: application
-version: 0.1.2
+version: 0.1.4
 appVersion: "10.10.7"

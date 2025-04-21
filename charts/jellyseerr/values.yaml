@@ -12,6 +12,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 baseUrl: /
+clusterIssuer: "" # If cluster issuer is defined, TLS will be activated.
 
 serviceAccount:
   # Specifies whether a service account should be created
