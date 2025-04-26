@@ -3,6 +3,22 @@ entries:
   arch-qbittorrentvpn:
   - apiVersion: v2
     appVersion: 5.0.3-1-01
+    created: "2025-04-26T21:46:27.413192821Z"
+    description: qBittorrent is a bittorrent client programmed in C++ / Qt that uses
+      libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg. It aims
+      to be a good alternative to all other bittorrent clients out there. qBittorrent
+      is fast, stable and provides unicode support as well as many features. This
+      Docker includes OpenVPN and WireGuard to ensure a secure and private connection
+      to the Internet, including use of iptables to prevent IP leakage when the tunnel
+      is down.
+    digest: ab8391e7d2c55671ad9556b1cbbd9b614b344c428ed602c188af508ba5a8cd8c
+    name: arch-qbittorrentvpn
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/arch-qbittorrentvpn-0.1.6/arch-qbittorrentvpn-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: 5.0.3-1-01
     created: "2025-04-26T19:08:17.417695836Z"
     description: qBittorrent is a bittorrent client programmed in C++ / Qt that uses
       libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg. It aims
@@ -384,4 +400,4 @@ entries:
     urls:
     - https://github.com/trygve55/helm-charts/releases/download/sonarr-0.1.1/sonarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-04-26T19:08:17.417766207Z"
+generated: "2025-04-26T21:46:27.413260226Z"
