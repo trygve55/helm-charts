@@ -5,6 +5,8 @@ metadata:
   labels:
     {{- include "arch-qbittorrentvpn.labels" . | nindent 4 }}
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       {{- include "arch-qbittorrentvpn.selectorLabels" . | nindent 6 }}
@@ -23,20 +25,55 @@ spec:
       {{- end }}
       serviceAccountName: {{ include "arch-qbittorrentvpn.serviceAccountName" . }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        {{- with .Values.podSecurityContext }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+            {{- with .Values.securityContext }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+            {{- if and .Values.vpn.enabled (eq .Values.vpn.protocol "openvpn") }}
+            capabilities:
+              add:
+                - NET_ADMIN
+            {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
           - name: VPN_ENABLED
+            {{- if .Values.vpn.enabled }}
+            value: "yes"
+            {{- else }}
             value: "no"
+            {{- end }}
           - name: PUID
             value: "1000"
           - name: GUID
             value: "1000"
+          {{- if .Values.vpn.enabled }}
+          - name: VPN_PROV
+            value: {{ .Values.vpn.provider }}
+          - name: VPN_CLIENT
+          {{- if eq .Values.vpn.protocol "openvpn" }}
+            value: "openvpn"
+          - name: VPN_USER
+            valueFrom:
+              secretKeyRef:
+                name: vpn-credentials
+                key: username
+          - name: VPN_PASS
+            valueFrom:
+              secretKeyRef:
+                name: vpn-credentials
+                key: password
+          {{- else if eq .Values.vpn.protocol "wireguard" }}
+          {{- fail "Wireguard is not implemented yet." }}
+          {{- end }}
+          - name: LAN_NETWORK
+            value: "10.42.0.0/24"
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
@@ -49,13 +86,23 @@ spec:
             httpGet:
               path: /
               port: http
+          startupProbe:
+            httpGet:
+              path: /
+              port: http
+            failureThreshold: 20
+            periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - mountPath: /data
               name: data
-            - mountPath: /config
+            - mountPath: /config/qBittorrent
               name: config
+            - name: openvpn-configuration
+              mountPath: /config/openvpn/openvpn-config.ovpn
+              subPath: openvpn-config.ovpn
+              readOnly: true
       initContainers:
         - name: config
           image: busybox
@@ -79,9 +126,9 @@ spec:
               WebUI\AuthSubnetWhitelistEnabled=true
               WebUI\AuthSubnetWhitelist=0.0.0.0/0
               EOF
-              fi
+              fi;
           volumeMounts:
-            - mountPath: /config
+            - mountPath: /config/qBittorrent
               name: config
       volumes:
         {{- if eq .Values.storage.data.type "hostPath" }}
@@ -100,6 +147,12 @@ spec:
         {{- else }}
           {{ fail "A valid .Values.storage.config.type needs to be set!"}}
         {{- end }}
+        - name: openvpn-configuration
+          secret:
+            secretName: vpn-credentials
+            items:
+            - key: openvpn-config.ovpn
+              path: openvpn-config.ovpn
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
