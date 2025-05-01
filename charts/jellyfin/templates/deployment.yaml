@@ -24,13 +24,29 @@ spec:
       {{- end }}
       serviceAccountName: {{ include "jellyfin.serviceAccountName" . }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        {{- with .Values.podSecurityContext }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
+        {{- if .Values.hardwareAcceleration.intel.enabled }}
+        supplementalGroups:
+          - {{ required "You need to define the render group id." .Values.hardwareAcceleration.intel.renderGroupId }}
+        {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.hardwareAcceleration.intel.enabled }}
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - "/bin/sh"
+                  - "-c"
+                  - groupadd -g {{ .Values.hardwareAcceleration.intel.renderGroupId }} render;
+                  - usermod -a -G render hotio;
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
@@ -43,6 +59,10 @@ spec:
             httpGet:
               path: /
               port: http
+          {{- if .Values.hardwareAcceleration.intel.enabled }}
+          securityContext:
+            privileged: true
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
@@ -50,6 +70,10 @@ spec:
               name: data
             - mountPath: /config
               name: config
+            {{- if .Values.hardwareAcceleration.intel.enabled }}
+            - name: render-device
+              mountPath: {{ .Values.hardwareAcceleration.intel.renderDevicePath }}
+            {{- end }}
       initContainers:
         - name: config
           image: pipelinecomponents/xmllint:0.8.1
@@ -103,6 +127,11 @@ spec:
             type: Directory # this field is optional
         {{- else }}
           {{ fail "A valid .Values.storage.config.type needs to be set!"}}
+        {{- end }}
+        {{- if .Values.hardwareAcceleration.intel.enabled }}
+        - name: render-device
+          hostPath:
+            path: {{ required "You need to define the render device path." .Values.hardwareAcceleration.intel.renderDevicePath }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

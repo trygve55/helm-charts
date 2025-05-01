@@ -13,6 +13,11 @@ fullnameOverride: ""
 
 baseUrl: /
 clusterIssuer: "" # If cluster issuer is defined, TLS will be activated.
+hardwareAcceleration:
+  intel:
+    enabled: false
+    renderDevicePath: "/dev/dri/renderD128"
+    renderGroupId: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
