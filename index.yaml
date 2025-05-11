@@ -278,6 +278,18 @@ entries:
     urls:
     - https://github.com/trygve55/helm-charts/releases/download/jellyseerr-0.1.0/jellyseerr-0.1.0.tgz
     version: 0.1.0
+  mylar3:
+  - apiVersion: v2
+    appVersion: 0.8.2
+    created: "2025-05-11T21:24:44.261756679Z"
+    description: Mylar is an automated Comic Book (cbr/cbz) downloader program for
+      use with NZB and torrents.
+    digest: c3bcc321de76a28d60d45b65c80b5751532db26b742dc0405a045a6600960d62
+    name: mylar3
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/mylar3-0.1.0/mylar3-0.1.0.tgz
+    version: 0.1.0
   prowlarr:
   - apiVersion: v2
     appVersion: 1.33.3.5008
@@ -380,6 +392,19 @@ entries:
     urls:
     - https://github.com/trygve55/helm-charts/releases/download/radarr-0.1.0/radarr-0.1.0.tgz
     version: 0.1.0
+  readarr:
+  - apiVersion: v2
+    appVersion: 0.4.17.2795
+    created: "2025-05-11T21:24:44.423243904Z"
+    description: Readarr is a ebook collection manager for Usenet and BitTorrent users.
+      It can monitor multiple RSS feeds for new books from your favorite authors and
+      will interface with clients and indexers to grab, sort, and rename them.
+    digest: 8993314da3c5de8891041d7b838b2b1e3f00c8bc87541252f219004cfe878acf
+    name: readarr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/readarr-0.1.0/readarr-0.1.0.tgz
+    version: 0.1.0
   sonarr:
   - apiVersion: v2
     appVersion: 4.0.14.2939
@@ -417,4 +442,4 @@ entries:
     urls:
     - https://github.com/trygve55/helm-charts/releases/download/sonarr-0.1.1/sonarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-05-01T22:30:51.558942803Z"
+generated: "2025-05-11T21:24:44.423313935Z"
