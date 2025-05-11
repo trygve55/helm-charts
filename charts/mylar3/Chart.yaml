@@ -1,0 +1,7 @@
+apiVersion: v2
+name: mylar3
+description: Mylar is an automated Comic Book (cbr/cbz) downloader program for use with NZB and torrents.
+
+type: application
+version: 0.1.0
+appVersion: "0.8.2"
