@@ -278,6 +278,22 @@ entries:
     urls:
     - https://github.com/trygve55/helm-charts/releases/download/jellyseerr-0.1.0/jellyseerr-0.1.0.tgz
     version: 0.1.0
+  mineos:
+  - apiVersion: v2
+    appVersion: jdk-21
+    created: "2025-06-28T10:54:47.048919631Z"
+    description: MineOS is a specialized server management platform designed for hosting
+      Minecraft servers, offering an intuitive web-based interface to simplify tasks
+      such as creating, starting, stopping, and backing up servers. It supports multiple
+      Minecraft server types, including Vanilla, Spigot, Paper, Forge, and others,
+      and provides robust tools for scheduling, monitoring, and log management. Built
+      to run on Linux-based systems.
+    digest: 0488139499d73ea9a26bd1b174bf41ea36d47a2ff2aba4c451c947bfd545a1ff
+    name: mineos
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/mineos-0.1.0/mineos-0.1.0.tgz
+    version: 0.1.0
   mylar3:
   - apiVersion: v2
     appVersion: 0.8.2
@@ -442,4 +458,4 @@ entries:
     urls:
     - https://github.com/trygve55/helm-charts/releases/download/sonarr-0.1.1/sonarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-05-11T21:24:44.423313935Z"
+generated: "2025-06-28T10:54:47.048978461Z"
