@@ -21,3 +21,6 @@ helm repo add trygve55 https://trygve55.github.io/helm-charts --force-update
 
 ## Example usage
 You can find examples on how to use these helm charts in [k8s-servarr-setup](https://github.com/trygve55/k8s-servarr-setup).
+
+## Other helm charts
+* [mineos-node](MINEOS.md)

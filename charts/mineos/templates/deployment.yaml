@@ -1,0 +1,90 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "mineos.fullname" . }}
+  labels:
+    {{- include "mineos.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "mineos.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "mineos.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "mineos.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: SERVER_PORT
+              value: "8443"
+            - name: USE_HTTPS
+              value: "false"
+            - name: USER_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: mineos
+                  key: username
+            - name: USER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mineos
+                  key: password
+            - name: USER_UID
+              value: "1000"
+          ports:
+            - name: http
+              containerPort: 8443
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /var/games/minecraft
+              name: minecraft
+      volumes:
+        {{- if eq .Values.storage.minecraft.type "hostPath" }}
+        - name: minecraft
+          hostPath:
+            path: {{ required "You need to set a path to the minecraft directory! storage.minecraft.path" .Values.storage.minecraft.path }} # directory location on host
+            type: Directory # this field is optional
+        {{- else }}
+          {{ fail "A valid .Values.storage.minecraft.type needs to be set!"}}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

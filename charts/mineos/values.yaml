@@ -1,0 +1,85 @@
+# Default values for mineos.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: enayet123/mineos
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+clusterIssuer: "" # If cluster issuer is defined, TLS will be activated.
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+minecraftServers:
+  - port: 25565
+  - port: 25566
+  - port: 25567
+  - port: 25568
+  - port: 25569
+  - port: 25570
+
+httpServices:
+  - port: 8123
+    name: "dynmap"
+    host: "minecraft.local"
+    path: "/"
+
+ingress:
+  enabled: false
+  # className: ngnix
+  annotations: {} # If baseUrl is changed the appropriate annotations will be added automatically.
+  adminPage:
+    host: mineos.local
+    baseUrl: "/"
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+storage:
+  minecraft:
+    type: hostPath
+    path: /home/trygve/k8s-data/config/mineos
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
