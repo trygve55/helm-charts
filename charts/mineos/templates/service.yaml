@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "mineos.fullname" . }}-admin
+  labels:
+    {{- include "mineos.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8443
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "mineos.selectorLabels" . | nindent 4 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "mineos.fullname" . }}-mc
+  labels:
+    {{- include "mineos.labels" . | nindent 4 }}
+spec:
+  type: LoadBalancer
+  ports:
+    {{- range .Values.minecraftServers }}
+    - protocol: TCP
+      port: {{ .port }}
+      targetPort: {{ .port }}
+      name: "{{ .port }}"
+    {{ end }}
+  selector:
+    {{- include "mineos.selectorLabels" . | nindent 4 }}
+---
+{{- if .Values.httpServices }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "mineos.fullname" . }}-http
+  labels:
+    {{- include "mineos.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    {{- range .Values.httpServices }}
+    - protocol: TCP
+      port: {{ .port }}
+      targetPort: {{ .port }}
+      name: "{{ .name }}"
+    {{ end }}
+  selector:
+    {{- include "mineos.selectorLabels" . | nindent 4 }}
+{{- end}}
