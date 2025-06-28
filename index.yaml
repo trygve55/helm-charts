@@ -281,6 +281,21 @@ entries:
   mineos:
   - apiVersion: v2
     appVersion: jdk-21
+    created: "2025-06-28T20:42:16.641961764Z"
+    description: MineOS is a specialized server management platform designed for hosting
+      Minecraft servers, offering an intuitive web-based interface to simplify tasks
+      such as creating, starting, stopping, and backing up servers. It supports multiple
+      Minecraft server types, including Vanilla, Spigot, Paper, Forge, and others,
+      and provides robust tools for scheduling, monitoring, and log management. Built
+      to run on Linux-based systems.
+    digest: 3c891dc4f604472048fbc464b0421d9ab3cb9596164bfcf1026df9141677fdb1
+    name: mineos
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/mineos-0.1.1/mineos-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: jdk-21
     created: "2025-06-28T10:54:47.048919631Z"
     description: MineOS is a specialized server management platform designed for hosting
       Minecraft servers, offering an intuitive web-based interface to simplify tasks
@@ -458,4 +473,4 @@ entries:
     urls:
     - https://github.com/trygve55/helm-charts/releases/download/sonarr-0.1.1/sonarr-0.1.1.tgz
     version: 0.1.1
-generated: "2025-06-28T10:54:47.048978461Z"
+generated: "2025-06-28T20:42:16.642030202Z"
