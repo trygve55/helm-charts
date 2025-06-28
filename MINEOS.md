@@ -16,3 +16,17 @@ helm install mineos trygve55/mineos \
   --set httpServices[0].host="minecraft.local" \
   --set httpServices[0].path="/"
 ```
+
+Example of Dynmap being added:
+```shell
+  --set httpServices[0].port=8123 \
+  --set httpServices[0].name="dynmap" \
+  --set httpServices[0].host="minecraft.local" \
+  --set httpServices[0].path="/"
+```
+
+Example of another TCP port being added:
+```shell
+  --set tcpServices[6].port=24454 \
+  --set tcpServices[6].name="Simple Voice Chat"
+```

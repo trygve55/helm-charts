@@ -35,7 +35,7 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-minecraftServers:
+tcpServices:
   - port: 25565
   - port: 25566
   - port: 25567
@@ -43,11 +43,11 @@ minecraftServers:
   - port: 25569
   - port: 25570
 
-httpServices:
-  - port: 8123
-    name: "dynmap"
-    host: "minecraft.local"
-    path: "/"
+httpServices: []
+  # - port: 8123
+  #   name: "dynmap"
+  #   host: "minecraft.local"
+  #   path: "/"
 
 ingress:
   enabled: false
