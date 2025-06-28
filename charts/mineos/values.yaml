@@ -35,13 +35,16 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-tcpServices:
+services:
   - port: 25565
   - port: 25566
   - port: 25567
   - port: 25568
   - port: 25569
   - port: 25570
+  # - port: 24454
+  #  name: simple-voice-chat
+  #  protocol: UDP
 
 httpServices: []
   # - port: 8123

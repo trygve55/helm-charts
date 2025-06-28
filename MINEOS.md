@@ -27,6 +27,13 @@ Example of Dynmap being added:
 
 Example of another TCP port being added:
 ```shell
-  --set tcpServices[6].port=24454 \
-  --set tcpServices[6].name="Simple Voice Chat"
+  --set services[0].port=25565 \
+  --set services[1].port=25566 \
+  --set services[2].port=25567 \
+  --set services[3].port=25568 \
+  --set services[4].port=25569 \
+  --set services[5].port=25570 \
+  --set services[6].port=24454 \
+  --set services[6].name="simple-voice-chat" \
+  --set services[6].protocol="UDP"
 ```

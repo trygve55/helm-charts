@@ -17,14 +17,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "mineos.fullname" . }}-tcp
+  name: {{ include "mineos.fullname" . }}
   labels:
     {{- include "mineos.labels" . | nindent 4 }}
 spec:
   type: LoadBalancer
   ports:
-    {{- range .Values.tcpServices }}
-    - protocol: TCP
+    {{- range .Values.services }}
+    - protocol: {{ .protocol | default "TCP" }}
       port: {{ .port }}
       targetPort: {{ .port }}
       name: {{ .name | default .port | quote }}
