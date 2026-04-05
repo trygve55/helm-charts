@@ -46,7 +46,7 @@ spec:
             - iptables -I INPUT 1 -p tcp --destination-port 8080 -m iprange --src-range 10.42.0.1-10.42.255.255 -j ACCEPT;
               iptables -I INPUT 2 -p tcp --destination-port 8080 -s 127.0.0.1 -j ACCEPT;
               iptables -I INPUT 3 -p tcp --destination-port 8080 -j DROP;
-              /usr/bin/dumb-init -- /bin/bash /usr/local/bin/init.sh;
+              /usr/bin/dumb-init -- /bin/bash /usr/bin/init.sh;
           env:
           - name: VPN_ENABLED
             {{- if .Values.vpn.enabled }}
