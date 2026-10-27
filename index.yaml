@@ -579,6 +579,19 @@ entries:
     version: 0.1.0
   sonarr:
   - apiVersion: v2
+    appVersion: release-4.0.20.3014
+    created: "2026-10-27T18:03:17.543620646Z"
+    description: Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple
+      RSS feeds for new episodes of your favorite shows and will grab, sort and rename
+      them. It can also be configured to automatically upgrade the quality of files
+      already downloaded when a better quality format becomes available.
+    digest: 9ecfdcb3b834f5ffaf508dca9c3d96ef6560214910e82fca6a83035efc21414d
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/sonarr-0.1.6/sonarr-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
     appVersion: 4.0.17.2952
     created: "2026-04-05T17:44:59.792578855Z"
     description: Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple
@@ -627,4 +640,4 @@ entries:
     urls:
     - https://github.com/trygve55/helm-charts/releases/download/sonarr-0.1.1/sonarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-10-27T17:50:58.408844134Z"
+generated: "2026-10-27T18:03:17.54370927Z"
