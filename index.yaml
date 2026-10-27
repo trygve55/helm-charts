@@ -607,6 +607,20 @@ entries:
     urls:
     - https://github.com/trygve55/helm-charts/releases/download/readarr-0.1.0/readarr-0.1.0.tgz
     version: 0.1.0
+  seerr:
+  - apiVersion: v2
+    appVersion: release-v3.5.1
+    created: "2026-10-27T18:33:06.575583756Z"
+    description: 'Seerr is a free and open source software application for managing
+      requests for your media library. It integrates with the media server of your
+      choice: Jellyfin, Plex, and Emby. In addition, it integrates with your existing
+      services, such as Sonarr, Radarr.'
+    digest: 7100f6a08fac9c39d7198185cbc7e3cdfd537c5299157bad6641c1bbefd23514
+    name: seerr
+    type: application
+    urls:
+    - https://github.com/trygve55/helm-charts/releases/download/seerr-0.1.0/seerr-0.1.0.tgz
+    version: 0.1.0
   sonarr:
   - apiVersion: v2
     appVersion: 4.0.20.3014
@@ -683,4 +697,4 @@ entries:
     urls:
     - https://github.com/trygve55/helm-charts/releases/download/sonarr-0.1.1/sonarr-0.1.1.tgz
     version: 0.1.1
-generated: "2026-10-27T18:18:02.762560009Z"
+generated: "2026-10-27T18:33:06.575664658Z"
