@@ -1,11 +1,11 @@
-# Default values for jellyseerr.
+# Default values for seerr.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 image:
-  repository: ghcr.io/hotio/jellyseerr
+  repository: ghcr.io/hotio/seerr
   pullPolicy: IfNotPresent
-  tag: "release-2.5.2"
+  tag: "release-v3.5.1"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -45,7 +45,7 @@ ingress:
   # className: ngnix
   annotations: {} # If baseUrl is changed the appropriate annotations will be added automatically.
   hosts:
-    - host: jellyseerr.local
+    - host: seerr.local
       # Paths are managed using the value "baseUrl".
   tls: []
   #  - secretName: chart-example-tls
@@ -58,7 +58,7 @@ storage:
     path: /mount/hdd0/data
   config:
     type: hostPath
-    path: /home/trygve/k8s-data/config/jellyseerr
+    path: /home/trygve/k8s-data/config/seerr
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

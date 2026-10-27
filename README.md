@@ -5,7 +5,7 @@ Helm charts for:
 * Prowlarr
 * Bazarr
 * Jellyfin
-* Jellyseer
+* Seerr
 * arch-qbittorrentvpn
 
 All of these Helm charts support using `baseUrl: /` to enable hosting each service in a specific subfolder. This is useful if you want to host all services under the same domain.
